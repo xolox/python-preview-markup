@@ -1,0 +1,4 @@
+graft preview_markup/static
+graft preview_markup/templates
+include *.rst
+include *.txt

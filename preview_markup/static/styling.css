@@ -1,0 +1,79 @@
+/* Most of the following styles are me fighting against Bootstrap because I
+ * don't agree with some of their choices, even if I do think they _mostly_
+ * provide sane defaults.
+ */
+
+body {
+  /* Enforce a maximum width that approximately matches the width that GitHub
+   * uses to render the README on a project page (this helps to see how well
+   * the headings work - ideally they shouldn't wrap).
+   */
+  width: 790px;
+  /* Never make the body wider than the view port, I find horizontal scrolling
+   * in documentation _really_ awkward :-).
+   */
+  max-width: 100%;
+  /* Center align the body when it is less wide than the view port. */
+  margin: 0 auto;
+  /* Never make the text run into the view port boundaries. */
+  padding: 1em;
+  /* Ensure that the box styling of <code> and <tt> elements on multiple screen
+   * lines don't touch each other.
+   */
+  line-height: 1.8em;
+}
+
+/* Most documents will start with a top level heading. Because we already
+ * applied a padding to the body it doesn't make sense to also keep the top
+ * margin for top level headings that Bootstrap applies
+ * (margin + padding = too much whitespace).
+ */
+h1 {
+  margin-top: 0;
+}
+
+/* reStructuredText supports automatic table of contents (TOC) generation which
+ * is really nice (I use this feature a lot) but it also converts the heading
+ * texts into links that jump back to the relevant TOC. That's fine, but I
+ * don't need all my headings styled as hyper links!
+ */
+h1 a:link, h1 a:visited,
+h2 a:link, h2 a:visited,
+h3 a:link, h3 a:visited,
+h4 a:link, h4 a:visited,
+h5 a:link, h5 a:visited,
+h6 a:link, h6 a:visited {
+  color: inherit;
+}
+
+/* Clearly mark <code> and <tt> fragments, similar to how GitHub does it. The
+ * styling doesn't match exactly with GitHub, but that's not my intention, I
+ * just want the box styling :-).
+ */
+code, tt {
+  padding: 0.1em 0.2em;
+  background-color: #EEE;
+  border-radius: 3px;
+}
+
+/* Nasty hack that uses CSS3 attribute selectors to give Travis CI and
+ * Coveralls badges a maximum height. This is intended to avoid the web browser
+ * reflowing the page layout as it loads the badges and discovers their actual
+ * height (the effect I'm referring to is probably caused by Travis CI badges
+ * because they are SVG images).
+ *
+ * Normally this effect isn't that bothersome, but it is when using a 10 second
+ * automatic refresh interval :-).
+ */
+img[src*="https://travis-ci.org/"],
+img[src*="https://coveralls.io/"] {
+  max-height: 1.2em;
+}
+
+/* I'm not sure why Bootstrap completely borks the margins/paddings of
+ * definition lists but I don't like it :-).
+ */
+dd {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}

@@ -1,0 +1,5 @@
+BeautifulSoup >= 3.2.1
+docutils >= 0.12
+Flask >= 0.10.1
+humanfriendly >= 1.14
+Markdown >= 2.3.1
