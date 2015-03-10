@@ -54,6 +54,11 @@ code, tt {
   padding: 0.1em 0.2em;
   background-color: #EEE;
   border-radius: 3px;
+  /* Don't use the pink / purple (you tell me) color that Bootstrap uses by
+   * default for <code> elements because GitHub doesn't either and I kind of
+   * don't like that color in my rendered README files.
+   */
+  color: inherit;
 }
 
 /* Nasty hack that uses CSS3 attribute selectors to give Travis CI and
