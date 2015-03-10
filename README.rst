@@ -79,6 +79,10 @@ into and/or used in the past:
  Live preview of reStructuredText_ files. A personal favorite of mine, simple
  and sweet, does exactly what is promises. Written in Python.
 
+`grip <https://github.com/joeyespo/grip>`_
+ Provides local previews of Markdown files exactly as GitHub renders them by
+ using the GitHub API to render the Markdown to HTML. Written in Python.
+
 `markdown-live <https://github.com/mobily/markdown-live>`_
  Live preview of Markdown files. Written in JavaScript (using Node.js).
 
