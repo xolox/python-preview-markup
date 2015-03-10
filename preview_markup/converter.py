@@ -32,7 +32,8 @@ def convert_to_html(filename, input_encoding='UTF-8'):
     :returns: The converted HTML (a string).
     """
     # Determine the filename extension.
-    extension = get_filename_extension(filename)
+    basename, extension = os.path.splitext(filename)
+    extension = extension.lower()
     # Read the input file into a Unicode string.
     with codecs.open(filename, encoding=input_encoding) as handle:
         text = handle.read()
@@ -79,19 +80,9 @@ def find_readme_file(directory):
     for filename in os.listdir(directory):
         pathname = os.path.join(directory, filename)
         if os.path.isfile(pathname):
-            extension = get_filename_extension(filename)
-            if extension in SUPPORTED_EXTENSIONS:
+            basename, extension = os.path.splitext(filename)
+            if basename == 'README' and extension in SUPPORTED_EXTENSIONS:
                 matched_files.append(pathname)
     assert len(matched_files) > 0, "Failed to find README!"
     assert len(matched_files) == 1, "Found more than one README file?!"
     return matched_files[0]
-
-def get_filename_extension(filename):
-    """
-    Get the lowercase extension of a filename.
-
-    :param filename: The filename to extract the extension from (a string).
-    :returns: The lowercase filename extension (a string).
-    """
-    basename, extension = os.path.splitext(filename)
-    return extension.lower()
