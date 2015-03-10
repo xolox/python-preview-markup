@@ -4,4 +4,4 @@
 # Last Change: March 10, 2015
 # URL: https://github.com/xolox/python-preview-markup
 
-__version__ = '0.1.1'
+__version__ = '0.2'

@@ -13,7 +13,7 @@ import os
 from BeautifulSoup import BeautifulSoup
 from docutils.core import publish_parts
 from humanfriendly import Timer, format_size
-from markdown import markdown
+from misaka import Markdown, HtmlRenderer
 
 # Initialize a logger for this module.
 logger = logging.getLogger(__name__)
@@ -41,7 +41,8 @@ def convert_to_html(filename, input_encoding='UTF-8'):
     timer = Timer()
     if extension in MARKDOWN_EXTENSIONS:
         logger.debug("Filename extension of input file (%s) indicates Markdown.", extension)
-        html = markdown(text)
+        converter = Markdown(HtmlRenderer())
+        html = converter.render(text)
     elif extension in RESTRUCTUREDTEXT_EXTENSIONS:
         logger.debug("Filename extension of input file (%s) indicates reStructuredText.", extension)
         parts = publish_parts(source=text,
