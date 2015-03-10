@@ -43,6 +43,25 @@ the program in the background. If you want to kill the program later on just
 run the ``fg`` command (this will bring the program back to the foreground) and
 then press Control-C (this will kill the program).
 
+Future improvements
+-------------------
+
+Some random ideas for future improvements (I may implement these as time
+permits or when I feel like programming but don't feel like picking up one of
+my many other projects):
+
+Automatically close orphaned windows
+ When the command line program is terminated the browser window or tab page
+ that was previously opened should be closed automatically. This can probably
+ be implemented using a JavaScript call to the server to check if the server is
+ still alive, if not then just call ``window.close()``.
+
+Instant updates instead of meta refresh
+ Right now there's a hard coded 10 second meta refresh in the HTML template. It
+ would be a lot more elegant if the server used inotify or something similar to
+ instantly detect changes and push those to the browser client. For now the
+ meta refresh achieves the main goal though :-).
+
 Why this project?
 -----------------
 
