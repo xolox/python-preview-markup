@@ -14,9 +14,11 @@ Installation
 ------------
 
 The ``preview-markup`` program is written in Python and is available on PyPI_
-which means installation should be as simple as::
+which means installation should be as simple as:
 
-  $ pip install preview-markup
+.. code-block:: sh
+
+   $ pip install preview-markup
 
 There's actually a multitude of ways to install Python packages (e.g. the `per
 user site-packages directory`_, `virtual environments`_ or just installing
@@ -34,9 +36,11 @@ previewed.
 
 If you want to run ``preview-markup`` in the background then you probably won't
 appreciate the logging to the terminal that is enabled by default. In this case
-I suggest you use the following command line::
+I suggest you use the following command line:
 
-  $ preview-markup -q &
+.. code-block:: sh
+
+   $ preview-markup -q &
 
 The ``-q`` is short for ``--quiet`` and the ``&`` instructs your shell to run
 the program in the background. If you want to kill the program later on just

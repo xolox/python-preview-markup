@@ -1,7 +1,7 @@
 # Simple Flask based HTTP server for the preview-markup program.
 #
 # Author: Peter Odding <peter@peterodding.com>
-# Last Change: March 10, 2015
+# Last Change: April 3, 2015
 # URL: https://github.com/xolox/python-preview-markup
 
 # Standard library modules.
@@ -35,7 +35,8 @@ def start_webserver(input_file):
 @app.route('/')
 def index():
     """Flask view to render live previews of Markdown/reStructuredText documents."""
-    html = convert_to_html(app.config['INPUT_FILE'])
+    head, body = convert_to_html(app.config['INPUT_FILE'])
     return render_template('preview.html',
-                           title=extract_document_title(html),
-                           content=Markup(html))
+                           title=extract_document_title(body),
+                           head=Markup(head),
+                           body=Markup(body))

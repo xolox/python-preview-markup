@@ -1,7 +1,7 @@
 # Easily preview text documents as HTML in a web browser.
 #
 # Author: Peter Odding <peter@peterodding.com>
-# Last Change: March 10, 2015
+# Last Change: April 3, 2015
 # URL: https://github.com/xolox/python-preview-markup
 
 # Standard library modules.
@@ -29,7 +29,9 @@ def convert_to_html(filename, input_encoding='UTF-8'):
 
     :param filename: The filename of the text file to convert (a string).
     :param encoding: The encoding of the text file (a string).
-    :returns: The converted HTML (a string).
+    :returns: A tuple of two strings:
+              1. The HTML to embed in the ``<head>``.
+              2. The HTML to embed in the ``<body>``.
     """
     # Determine the filename extension.
     basename, extension = os.path.splitext(filename)
@@ -42,19 +44,21 @@ def convert_to_html(filename, input_encoding='UTF-8'):
     if extension in MARKDOWN_EXTENSIONS:
         logger.debug("Filename extension of input file (%s) indicates Markdown.", extension)
         converter = Markdown(HtmlRenderer())
-        html = converter.render(text)
+        head = ''
+        body = converter.render(text)
     elif extension in RESTRUCTUREDTEXT_EXTENSIONS:
         logger.debug("Filename extension of input file (%s) indicates reStructuredText.", extension)
         parts = publish_parts(source=text,
                               writer_name='html',
                               settings_overrides=dict(doctitle_xform=False))
-        html = parts['html_body']
+        head = parts['stylesheet']
+        body = parts['html_body']
     else:
         msg = "Input file not supported! (filename extension %s not recognized)"
         raise ValueError(msg % extension)
     logger.debug("Converted %s input text to %s HTML in %s.",
-                 format_size(len(text)), format_size(len(html)), timer)
-    return html
+                 format_size(len(text)), format_size(len(head) + len(body)), timer)
+    return head, body
 
 def extract_document_title(html):
     """
