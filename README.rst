@@ -1,7 +1,7 @@
 preview-markup: Live preview Markdown and reStructuredText files
 ================================================================
 
-The ``preview-markup`` program takes a text file with lightweight markup
+The `preview-markup` program takes a text file with lightweight markup
 (Markdown_ and reStructuredText_ are supported) and shows a live preview of the
 markup rendered to HTML in your web browser. When you save your text file the
 preview is automatically updated within a couple of seconds. That's all there
@@ -13,7 +13,7 @@ is to it!
 Installation
 ------------
 
-The ``preview-markup`` program is written in Python and is available on PyPI_
+The `preview-markup` program is written in Python and is available on PyPI_
 which means installation should be as simple as:
 
 .. code-block:: sh
@@ -34,7 +34,7 @@ filename as an argument then that file will be previewed, otherwise the
 ``README.md`` or ``README.rst`` file in the current working directory is
 previewed.
 
-If you want to run ``preview-markup`` in the background then you probably won't
+If you want to run `preview-markup` in the background then you probably won't
 appreciate the logging to the terminal that is enabled by default. In this case
 I suggest you use the following command line:
 
@@ -69,12 +69,12 @@ Instant updates instead of meta refresh
 Why this project?
 -----------------
 
-Different variations of ``preview-markup`` have lived in my private dotfiles
+Different variations of `preview-markup` have lived in my private dotfiles
 repository for years now (I track ``~/bin`` in my dotfiles repository). Over
 those years the program has had several names and very similar yet slightly
 different purposes. By the time I decided to clean up these "variations on a
 similar theme" I was using several different shell and Python scripts working
-together to do the same things that ``preview-markup`` now does. I decided to
+together to do the same things that `preview-markup` now does. I decided to
 merge, cleanup, document and publish that mess of Python and shell scripts for
 multiple reasons:
 
@@ -92,7 +92,7 @@ multiple reasons:
 Similar projects
 ~~~~~~~~~~~~~~~~
 
-I created ``preview-markup`` because I couldn't find a tool that provided live
+I created `preview-markup` because I couldn't find a tool that provided live
 previews of Markdown_ *and* reStructuredText_ markup and just because it was
 fun to work on, however *this is clearly an itch that dozens of developers have
 scratched over the years* :-). Here are some similar projects that I've run
@@ -116,7 +116,7 @@ into and/or used in the past:
 Contact
 -------
 
-The latest version of ``preview-markup`` is available on PyPI_ and GitHub_. For
+The latest version of `preview-markup` is available on PyPI_ and GitHub_. For
 bug reports please create an issue on GitHub_. If you have questions,
 suggestions, etc. feel free to send me an e-mail at `peter@peterodding.com`_.
 
