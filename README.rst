@@ -125,7 +125,7 @@ License
 
 This software is licensed under the `MIT license`_.
 
-© 2015 Peter Odding.
+© 2018 Peter Odding.
 
 .. External references:
 .. _GitHub: https://github.com/xolox/python-preview-markup
