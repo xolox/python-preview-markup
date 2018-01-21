@@ -2,5 +2,5 @@ BeautifulSoup >= 3.2.1
 docutils >= 0.12
 Flask >= 0.10.1
 humanfriendly >= 1.14
-misaka >= 1.0.2
+misaka >= 2.1.0
 Pygments >= 1.6

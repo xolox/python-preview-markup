@@ -1,8 +1,10 @@
 # Easily preview text documents as HTML in a web browser.
 #
 # Author: Peter Odding <peter@peterodding.com>
-# Last Change: April 3, 2015
+# Last Change: December 5, 2017
 # URL: https://github.com/xolox/python-preview-markup
+
+"""Convert Markdown and reStructuredText to HTML."""
 
 # Standard library modules.
 import codecs
@@ -22,6 +24,7 @@ logger = logging.getLogger(__name__)
 MARKDOWN_EXTENSIONS = ('.md', '.mkd', '.markdown')
 RESTRUCTUREDTEXT_EXTENSIONS = ('.rst',)
 SUPPORTED_EXTENSIONS = MARKDOWN_EXTENSIONS + RESTRUCTUREDTEXT_EXTENSIONS
+
 
 def convert_to_html(filename, input_encoding='UTF-8'):
     """
@@ -45,7 +48,7 @@ def convert_to_html(filename, input_encoding='UTF-8'):
         logger.debug("Filename extension of input file (%s) indicates Markdown.", extension)
         converter = Markdown(HtmlRenderer())
         head = ''
-        body = converter.render(text)
+        body = converter(text)
     elif extension in RESTRUCTUREDTEXT_EXTENSIONS:
         logger.debug("Filename extension of input file (%s) indicates reStructuredText.", extension)
         parts = publish_parts(source=text,
@@ -60,6 +63,7 @@ def convert_to_html(filename, input_encoding='UTF-8'):
                  format_size(len(text)), format_size(len(head) + len(body)), timer)
     return head, body
 
+
 def extract_document_title(html):
     """
     Extract the text of the first level one heading in a string of HTML.
@@ -71,6 +75,7 @@ def extract_document_title(html):
     elements = tree.findAll('h1')
     if elements:
         return ''.join(elements[0].findAll(text=True))
+
 
 def find_readme_file(directory):
     """
