@@ -26,6 +26,19 @@ system wide) and I have no intention of getting into that discussion here, so
 if this intimidates you then read up on your options before returning to these
 instructions ;-).
 
+Required system packages
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The `preview-markup` program uses the Misaka_ package for Markdown parsing
+because it's compatible with GitHub Flavored Markdown. This may require you to
+ensure that the libffi development files are installed before you attempt to
+install `preview-markup`. On Debian and Ubuntu based systems this can be
+accomplished as follows:
+
+.. code-block:: sh
+
+   $ sudo apt-get install libffi-dev
+
 Getting started
 ---------------
 
@@ -130,6 +143,7 @@ This software is licensed under the `MIT license`_.
 .. External references:
 .. _GitHub: https://github.com/xolox/python-preview-markup
 .. _Markdown: http://en.wikipedia.org/wiki/Markdown
+.. _Misaka: https://pypi.python.org/pypi/misaka
 .. _MIT license: http://en.wikipedia.org/wiki/MIT_License
 .. _per user site-packages directory: https://www.python.org/dev/peps/pep-0370/
 .. _peter@peterodding.com: peter@peterodding.com
