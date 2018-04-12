@@ -1,7 +1,7 @@
 # Easily preview text documents as HTML in a web browser.
 #
 # Author: Peter Odding <peter@peterodding.com>
-# Last Change: December 5, 2017
+# Last Change: April 12, 2018
 # URL: https://github.com/xolox/python-preview-markup
 
 """Convert Markdown and reStructuredText to HTML."""
@@ -45,8 +45,12 @@ def convert_to_html(filename, input_encoding='UTF-8'):
     # Convert the input file.
     timer = Timer()
     if extension in MARKDOWN_EXTENSIONS:
+        # The Markdown extensions used below were
+        # based on http://misaka.61924.nl/#api and
+        # https://gist.github.com/fyears/5097469.
         logger.debug("Filename extension of input file (%s) indicates Markdown.", extension)
-        converter = Markdown(HtmlRenderer())
+        renderer = HtmlRenderer(flags=('hard-wrap',))
+        converter = Markdown(renderer, extensions=('autolink', 'fenced-code', 'no-intra-emphasis', 'tables'))
         head = ''
         body = converter(text)
     elif extension in RESTRUCTUREDTEXT_EXTENSIONS:
